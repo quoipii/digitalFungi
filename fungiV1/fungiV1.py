@@ -3,8 +3,9 @@ import random
 import math
 from pathlib import Path
 
-generations = 130
-initHyphae = 3
+print("Recommended values: 130 generations, 3 starting hyphae.")
+generations = int(input("Number of generations: "))
+initHyphae = int(input("Starting hyphae: "))
 lineLen = 5
 imgDims = (1000,1000)
 endPointsNum = 580
@@ -59,7 +60,7 @@ for i in range(0, initHyphae):
     ImageDraw.Draw(background).line([startCoords, endCoords], fill=(255,255,round(255-(i/generations)*255),255), width=hyphaeThickness(initHyphae, i))
     openEnds.append([(endCoords), angle])
 
-    frames.append(background.copy())
+frames.append(background.copy())
 
 #Draw lines from openEnds for however many generations were specified
 for i in range(0, generations):
@@ -81,7 +82,8 @@ for i in range(0, generations):
             ImageDraw.Draw(background).line([startCoords[0], endCoords], fill=(255,255,round(255-(i/generations)*255),255), width=hyphaeThickness(generations, i))
             allLines.append([startCoords[0], endCoords])
             openEnds.append([endCoords, angle])
-
+    
+    #% completion update
     if (i/generations)*100 % 2 == 0:
         print(f"{(i/generations)*100}%")
     frames.append(background.copy())
@@ -90,4 +92,5 @@ for i in range(0, generations):
 durationList = [100 for i in range(0,len(frames)-1)]
 durationList.append(2000)
 
-frames[0].save(f'{Path.cwd()}\\mushGif.gif', save_all=True, append_images=frames[1:], optimize=False, duration=durationList, loop=0)
+frames[0].save(f'{Path.cwd()}\\mycGif.gif', save_all=True, append_images=frames[1:], optimize=False, duration=durationList, loop=0)
+input("Done!")
