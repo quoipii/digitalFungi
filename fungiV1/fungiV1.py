@@ -50,7 +50,12 @@ def getCoordsBranch(prevAngle, coords):
 
 background = Image.new(mode="RGBA", size=imgDims, color="black")
 frames = []
-print(f"Mycelium will branch approximately {((initHyphae-1)*10)*generations} times")
+
+print("-------------------------------------")
+print(f"Mycelium will branch approximately {abs(initHyphae-endPointsNum)} times")
+print(f"Branch rate of {branchRate}.")
+print("-------------------------------------")
+
 
 #Make the first lines
 for i in range(0, initHyphae):
