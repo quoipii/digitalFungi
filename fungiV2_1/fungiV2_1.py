@@ -1,5 +1,5 @@
 ################################################################################################
-#This version accepts masks.
+#This version accepts masks, which are 1000x1000 png's.
 #The fungi will only grow within the white pixels of a given mask.
 #Add a folder titled Masks and within which enclose any masks you would like to have in the program.
 #Add an entirely white mask to have a default mycelium simulation.
